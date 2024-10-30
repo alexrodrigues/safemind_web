@@ -1,3 +1,4 @@
+import 'package:safemind_web/widget/contact.dart';
 import 'package:safemind_web/widget/home_image.dart';
 import 'package:safemind_web/widget/psico_information.dart';
 import 'package:safemind_web/widget/web_bar.dart';
@@ -40,7 +41,8 @@ class _HomePageState extends State<HomePage> {
         children: [
           HomeImage(),
           PsicoInformation(),
-          WhoAmI()
+          WhoAmI(),
+          ContactForm(),
         ],
       )
     );
