@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
 class WebBar extends StatelessWidget {
-  const WebBar({super.key});
+  final Function(int) onItemTap;
+  WebBar({required this.onItemTap});  
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     return Container(
       color: Color.fromRGBO(251, 249, 240, 1.0),
-      child: const Padding(
+      child: Padding(
         padding: EdgeInsets.all(20),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            HoverText('Sobre'),
+            HoverText('Sobre', () => onItemTap(0)),
             SizedBox(width: 100),
-            HoverText('Para quem'),
+            HoverText('Para quem', () => onItemTap(1)),
             SizedBox(width: 100),
-            HoverText('Quem sou eu?'),
+            HoverText('Quem sou eu?', () => onItemTap(2)),
             SizedBox(width: 100),
-            HoverText('Contato'),
+            HoverText('Contato?', () => onItemTap(3)),
           ],
         ),
       ),
@@ -30,8 +30,9 @@ class WebBar extends StatelessWidget {
 
 class HoverText extends StatefulWidget {
   final String text;
+  final Function() onItemTap;
 
-  const HoverText(this.text, {super.key});
+  const HoverText(this.text, this.onItemTap, {super.key});
 
   @override
   _HoverTextState createState() => _HoverTextState();
@@ -54,7 +55,9 @@ class _HoverTextState extends State<HoverText> {
           fontSize: isHovered ? 18 : 16,
         ),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            widget.onItemTap();
+          },
           child: Text(widget.text),
         ),
       ),
