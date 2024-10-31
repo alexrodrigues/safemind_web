@@ -1,23 +1,40 @@
 <html>
 <head>
-
   <base href="./">
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
-
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="safemind_web">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
   <link rel="icon" type="image/png" href="favicon.png"/>
-
   <title>safemind_web</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+  <script>
+    (() => {
+      var L = () => navigator.vendor === "Google Inc." || navigator.agent === "Edg/",
+          W = () => typeof ImageDecoder > "u" ? !1 : L(),
+          E = () => typeof Intl.v8BreakIterator < "u" && typeof Intl.Segmenter < "u",
+          P = () => { let s = [0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 95, 1, 120, 0]; return WebAssembly.validate(new Uint8Array(s)); },
+          p = { hasImageCodecs: W(), hasChromiumBreakIterators: E(), supportsWasmGC: P(), crossOriginIsolated: window.crossOriginIsolated };
+      
+      function u(...s) { return new URL(S(...s), document.baseURI).toString(); }
+      // ...remaining code from flutter_bootstrap.js continues here...
+
+      if (!window._flutter) {
+        window._flutter = {};
+      }
+      _flutter.buildConfig = { "engineRevision": "36335019a8eab588c3c2ea783c618d90505be233", "builds": [{ "compileTarget": "dart2js", "renderer": "html", "mainJsPath": "main.dart.js" }] };
+
+      _flutter.loader.load({
+        serviceWorkerSettings: {
+          serviceWorkerVersion: "1818864584"
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
