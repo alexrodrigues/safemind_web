@@ -1,0 +1,1 @@
+web: bin/flutter run -d web-server --release --web-hostname 0.0.0.0 --web-port $PORT
